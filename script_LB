@@ -1,0 +1,35 @@
+import random
+
+def guess_the_number():
+    print("Вітаємо у грі 'Вгадай число'!")
+    
+    # Визначаємо діапазон чисел
+    lower_bound = 1
+    upper_bound = 100
+    
+    # Генеруємо випадкове число в діапазоні від 1 до 100
+    secret_number = random.randint(lower_bound, upper_bound)
+    
+    attempts = 0
+    max_attempts = 10
+
+    print(f"Я загадав число від {lower_bound} до {upper_bound}. Спробуйте вгадати його!")
+
+    while attempts < max_attempts:
+        # Запитуємо користувача ввести число
+        guess = int(input("Ваше припущення: "))
+        attempts += 1
+        
+        # Перевіряємо введене число
+        if guess < secret_number:
+            print("Загадане число більше!")
+        elif guess > secret_number:
+            print("Загадане число менше!")
+        else:
+            print(f"Вітаю! Ви вгадали число {secret_number} за {attempts} спроб!")
+            break
+    else:
+        print(f"Вибачте, але ви не вгадали число. Загадане число було {secret_number}.")
+
+# Запускаємо гру
+guess_the_number()
